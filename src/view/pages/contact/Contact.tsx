@@ -1,5 +1,5 @@
 
-import './Contact.css';
+
 import {useForm} from "react-hook-form";
 
 type FormData = {

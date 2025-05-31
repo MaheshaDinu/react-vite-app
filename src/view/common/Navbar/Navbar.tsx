@@ -1,5 +1,5 @@
 
-import './Navbar.css';
+
 import {useState} from "react";
 import {Link} from "react-router-dom";
 import logo from '../../../assets/icons8-leaves-96.png';
@@ -26,7 +26,7 @@ export function Navbar() {
                     </li>
                 ))}
             </ul>
-            <button className='sign-in-btn bg-green-600 text-white border-none p-2 rounded cursor-pointer transition duration-200 ease-in-out hover:bg-green-700  m-2'>
+            <button className='sign-in-btn bg-green-600 text-white border border-white p-2 rounded cursor-pointer transition duration-200 ease-in-out hover:bg-green-700  m-2'>
                 <Link className='decoration-0' to='/login'>Sign In</Link>
             </button>
         </nav>

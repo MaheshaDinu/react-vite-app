@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Orange",
+    "price": 200,
+    "currency": "LKR",
+    "image": "fruit-1220367_1280.png"
+  },
+  {
+    "id": 2,
+    "name": "Carrot",
+    "price": 100,
+    "currency": "LKR",
+    "image": "isolated-964393_1280.png"
+  },
+  {
+    "id": 3,
+    "name": "Kele",
+    "price": 300,
+    "currency": "LKR",
+    "image": "kale-3189314_1280.png"
+  }
+]
