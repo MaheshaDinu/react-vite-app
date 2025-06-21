@@ -20,7 +20,8 @@ export function Navbar() {
             <ul className={open ? ' flex-col absolute top-full left-0 right-0 bg-gray-800  ' : ' list-none sm:flex m-0 p-0 hidden '}>
                 {[{ text: 'Home', path: '/' },
                     { text: 'About', path: '/about' },
-                    { text: 'Contact', path: '/contact' }].map(({text,path}) => (
+                    { text: 'Contact', path: '/contact' },
+                    {text: 'Shopping Cart', path: '/shopping-cart'}].map(({text,path}) => (
                     <li key={text}>
                         <Link className='text-white text-xl decoration-0 p-2 hover:bg-slate-500 rounded' to={path} onClick={()=> setOpen(false)}>{text}</Link>
                     </li>

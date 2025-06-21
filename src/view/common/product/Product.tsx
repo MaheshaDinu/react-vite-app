@@ -29,7 +29,7 @@ export function Product({data}: ProductProps) {
     }
 
     return (
-        <div className="w-34 h-fit  bg-amber-100 rounded p-2 flex flex-col justify-between items-center">
+        <div className="w-34 h-fit  bg-green-100 rounded p-2 flex flex-col justify-between items-center shadow-md hover:bg-green-200 transition duration-200 ease-in-out hover:-translate-y-1 hover:scale-110">
             <div>
                 <img src={image} alt="orange" className="w-20 h-20 object-contain" />
             </div>

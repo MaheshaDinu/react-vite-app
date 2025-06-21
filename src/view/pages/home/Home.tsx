@@ -3,6 +3,9 @@ import carrot from "../../../assets/products/isolated-964393_1280.png"
 import kale from "../../../assets/products/kale-3189314_1280.png"
 import {useEffect, useState} from "react";
 import {Product} from "../../common/product/Product.tsx";
+import {useDispatch} from "react-redux";
+import type {AppDispatch} from "../../../store/store.ts";
+import {getAllProducts} from "../../../slices/productSlice.ts";
 
 type productData = {
     id: number;
@@ -13,23 +16,15 @@ type productData = {
 }
 export function Home() {
 
-    const [products, setProducts] = useState<productData[]>([]);
+
+    // const [products, setProducts] = useState<productData[]>([]);
+
+    const dispatch = useDispatch<AppDispatch>()
+
 
     useEffect(() => {
-      const fetchData = async () => {
-          try {
-              const response = await fetch('./product-data.json')
-              const jsonData = await response.json()
-              console.log(jsonData)
-              setProducts(jsonData)
-              console.log(products)
-          } catch (error){
-              console.error('Error Fetching data :'+error)
-          }
+        dispatch(getAllProducts());
 
-
-  }
-      fetchData()
     },[])
     return (
         <div >
