@@ -1,8 +1,7 @@
-import {useState} from "react";
 import {ModifyCart} from "../ModifyCart/ModifyCart.tsx";
 import type {ProductData} from "../../../model/ProductData.ts";
-import {useDispatch} from "react-redux";
-import type {AppDispatch} from "../../../store/store.ts";
+import {useDispatch, useSelector} from "react-redux";
+import type {AppDispatch, rootState} from "../../../store/store.ts";
 import {addItemToCart} from "../../../slices/cartSlice.ts";
 
 
@@ -20,10 +19,12 @@ export function Product({data}: ProductProps) {
 
    const dispatch =useDispatch<AppDispatch>()
 
-   const [isActive, setIsActive] = useState(false);
+   const item = useSelector((state: rootState)=> state.cart.items.find(item => item.product.id === data.id))
+
+  // const [isActive, setIsActive] = useState(false);
     const addToCart = () =>{
 
-        setIsActive(true);
+        //setIsActive(true);
         dispatch(addItemToCart(data))
 
     }
@@ -45,7 +46,7 @@ export function Product({data}: ProductProps) {
             </div>
 
             {
-                isActive?(<ModifyCart data={{product: data}}/>):(<button onClick={addToCart} className="w-full mt-1 py-[3px] text-[10px] bg-[#1f9e4b] text-white border border-gray-400 rounded">
+                item ? (<ModifyCart data={{product: data}}/>):(<button onClick={addToCart} className="w-full mt-1 py-[3px] text-[10px] bg-[#1f9e4b] text-white border border-gray-400 rounded">
                     Add to Cart
                 </button>)
             }

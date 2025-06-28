@@ -1,10 +1,10 @@
-import type {CartItem} from "../../../model/CartItem.ts";
+// import type {CartItem} from "../../../model/CartItem.ts";
 import {useSelector} from "react-redux";
 import type {rootState} from "../../../store/store.ts";
 
-interface ShoppingCartProps{
-    itemsList: CartItem[];
-}
+// interface ShoppingCartProps{
+//     itemsList: CartItem[];
+// }
 
 export function ShoppingCart() {
 
