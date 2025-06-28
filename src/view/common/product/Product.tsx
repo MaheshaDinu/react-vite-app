@@ -1,31 +1,31 @@
-import orange from "../../../assets/products/fruit-1220367_1280.png";
 import {useState} from "react";
 import {ModifyCart} from "../ModifyCart/ModifyCart.tsx";
+import type {ProductData} from "../../../model/ProductData.ts";
+import {useDispatch} from "react-redux";
+import type {AppDispatch} from "../../../store/store.ts";
+import {addItemToCart} from "../../../slices/cartSlice.ts";
 
-type productData = {
-    id: number;
-    name: string;
-    price: number;
-    currency: string;
-    image: string;
-}
+
 
 type ProductProps = {
-    data: productData
+    data: ProductData
 }
 
 const images: Record<string, string> = import.meta.glob('../../../assets/products/*',{eager: true, import: 'default'});
 
 
 export function Product({data}: ProductProps) {
-   //console.log(images)
-    console.log(`../../../assets/products/${data.image}`);
+
    let image = images[`../../../assets/products/${data.image}`];
+
+   const dispatch =useDispatch<AppDispatch>()
 
    const [isActive, setIsActive] = useState(false);
     const addToCart = () =>{
 
         setIsActive(true);
+        dispatch(addItemToCart(data))
+
     }
 
     return (

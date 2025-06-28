@@ -38,8 +38,8 @@ const productsSlice = createSlice({
                 })
             // Async Response Failure State
             .addCase(getAllProducts.rejected,
-                (state:ProductsState, action: ReturnType<typeof getAllProducts.rejected>) => {
-                    state.error = action.payload ?? "Unknown error";
+                (state:ProductsState, action) => {
+                    state.error = action.error.message();
                     alert("Error: " + state.error)
                 });
     }
