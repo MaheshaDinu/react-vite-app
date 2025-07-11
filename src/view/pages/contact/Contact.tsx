@@ -1,6 +1,8 @@
 
 
 import {useForm} from "react-hook-form";
+import {createAsyncThunk} from "@reduxjs/toolkit";
+import {backendApi} from "../../../api.ts";
 
 type FormData = {
     email: string;
@@ -11,8 +13,9 @@ export function Contact() {
     const {register, handleSubmit, formState:{errors}} = useForm<FormData>();
 
     const onSubmit = (data: FormData) =>{
-        console.log("Form data submitted:", data);
-        alert(`Submitted your case: ${data.subject}`);
+        const request = backendApi.post("/contact/save", data);
+        const res = request.then(res => res.data);
+        alert(res)
     }
 
     return (
