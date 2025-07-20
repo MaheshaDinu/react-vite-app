@@ -1,7 +1,6 @@
 
 
 import {useForm} from "react-hook-form";
-import {createAsyncThunk} from "@reduxjs/toolkit";
 import {backendApi} from "../../../api.ts";
 
 type FormData = {
